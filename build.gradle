@@ -1,9 +1,11 @@
 buildscript {
+  ext.kotlin_version = '1.0.5-2'
   repositories {
     jcenter()
   }
   dependencies {
     classpath 'com.android.tools.build:gradle:2.2.3'
+    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     classpath 'com.squareup.sqldelight:gradle-plugin:0.5.1'
   }
 }
@@ -15,6 +17,8 @@ allprojects {
 }
 
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.squareup.sqldelight'
 
 dependencies {
@@ -43,7 +47,7 @@ android {
   //}
 
   defaultConfig {
-    minSdkVersion 9
+    minSdkVersion 21
     targetSdkVersion 24
     applicationId 'com.example.sqldelight.hockey'
 
