@@ -1,7 +1,16 @@
 buildscript {
+  repositories {
+    jcenter()
+  }
   dependencies {
-    classpath dep.androidPlugin
+    classpath 'com.android.tools.build:gradle:2.2.3'
     classpath 'com.squareup.sqldelight:gradle-plugin:0.5.1'
+  }
+}
+
+allprojects {
+  repositories {
+    jcenter()
   }
 }
 
@@ -17,8 +26,8 @@ dependencies {
 }
 
 android {
-  compileSdkVersion rootProject.ext.compileSdkVersion
-  buildToolsVersion rootProject.ext.buildToolsVersion
+  compileSdkVersion 24
+  buildToolsVersion "25.0.1"
 
   compileOptions {
     sourceCompatibility JavaVersion.VERSION_1_7
@@ -29,9 +38,9 @@ android {
     textOutput 'stdout'
   }
 
-  dexOptions {
-    preDexLibraries = !rootProject.ext.isCi
-  }
+  //dexOptions {
+  //  preDexLibraries = !rootProject.ext.isCi
+  //}
 
   defaultConfig {
     minSdkVersion 9
@@ -42,20 +51,20 @@ android {
     versionName '1.0'
   }
 
-  signingConfigs {
-    debug {
-      storeFile file('debug.keystore')
-      storePassword 'android'
-      keyAlias 'android'
-      keyPassword 'android'
-    }
-  }
+//  signingConfigs {
+//    debug {
+//      storeFile file('debug.keystore')
+//      storePassword 'android'
+//      keyAlias 'android'
+//      keyPassword 'android'
+//    }
+//  }
 
-  buildTypes {
-    debug {
-      applicationIdSuffix '.development'
-      signingConfig signingConfigs.debug
-    }
-  }
+//  buildTypes {
+//    debug {
+//      applicationIdSuffix '.development'
+//      signingConfig signingConfigs.debug
+//    }
+//  }
 }
 
