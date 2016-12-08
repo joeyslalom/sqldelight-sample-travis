@@ -96,8 +96,6 @@ android {
 
     versionCode 1
     versionName '1.0'
-    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
   }
 
 //  signingConfigs {
@@ -115,27 +113,5 @@ android {
 //      signingConfig signingConfigs.debug
 //    }
 //  }
-
-  buildTypes {
-    release {
-      minifyEnabled true
-      shrinkResources true
-      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-    }
-  }
-  sourceSets {
-    main.java.srcDirs += 'src/main/kotlin'
-    test.java.srcDirs += 'src/test/kotlin'
-    debug.java.srcDirs += 'src/debug/kotlin'
-    release.java.srcDirs += 'src/release/kotlin'
-  }
-
-  lintOptions {
-    abortOnError false
-  }
-  // TODO while we're using both rxjava1 + 2
-  packagingOptions {
-    exclude 'META-INF/rxjava.properties'
-  }
 }
 
